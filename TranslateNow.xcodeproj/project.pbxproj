@@ -14,6 +14,7 @@
 		748C521B25B05D5900A95F85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 748C521A25B05D5900A95F85 /* Assets.xcassets */; };
 		748C521E25B05D5900A95F85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748C521C25B05D5900A95F85 /* LaunchScreen.storyboard */; };
 		748C523825B05EA100A95F85 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C523725B05EA100A95F85 /* TranslationViewController.swift */; };
+		7495CAF725B23F4700FEB112 /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7495CAF625B23F4700FEB112 /* TranslateService.swift */; };
 		A00CF1162498A3242B108B38 /* Pods_TranslateNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BF96DC5EC1691CF7CEB27B /* Pods_TranslateNow.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		748C521D25B05D5900A95F85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		748C521F25B05D5900A95F85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		748C523725B05EA100A95F85 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		7495CAF625B23F4700FEB112 /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
 		F9BF96DC5EC1691CF7CEB27B /* Pods_TranslateNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslateNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -57,6 +59,7 @@
 			children = (
 				748C521025B05D5800A95F85 /* TranslateNow */,
 				748C523A25B05EF000A95F85 /* Controllers */,
+				7495CAF525B23F1900FEB112 /* Services */,
 				748C523C25B05F7B00A95F85 /* Resources */,
 				748C520F25B05D5800A95F85 /* Products */,
 				DFC3F8135F118D64B8C21DBD /* Pods */,
@@ -99,6 +102,14 @@
 				748C521A25B05D5900A95F85 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7495CAF525B23F1900FEB112 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7495CAF625B23F4700FEB112 /* TranslateService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		DFC3F8135F118D64B8C21DBD /* Pods */ = {
@@ -243,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7495CAF725B23F4700FEB112 /* TranslateService.swift in Sources */,
 				748C521225B05D5800A95F85 /* AppDelegate.swift in Sources */,
 				748C521425B05D5800A95F85 /* SceneDelegate.swift in Sources */,
 				748C523825B05EA100A95F85 /* TranslationViewController.swift in Sources */,

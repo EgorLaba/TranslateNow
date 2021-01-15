@@ -1,6 +1,4 @@
 import UIKit
-import MLKitTranslate
-import MLKitLanguageID
 
 class TranslationViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UIPickerViewDataSource {
     
@@ -10,11 +8,8 @@ class TranslationViewController: UIViewController, UIPickerViewDelegate, UITextF
     @IBOutlet weak var resultLabelText: UILabel!
     @IBOutlet weak var translatedButton: UIButton!
     @IBOutlet weak var displayView: UIView!
-    @IBOutlet weak var sourceLanguageTexField: UITextField!
+    @IBOutlet weak var sourceLanguageTextField: UITextField!
     @IBOutlet weak var targetLanguageTextField: UITextField!
-    
-    
-    var translator: Translator!
     
     // MARK: - Variables
     
@@ -32,11 +27,8 @@ class TranslationViewController: UIViewController, UIPickerViewDelegate, UITextF
         super.viewDidLoad()
         
         configureUI()
-        
-        TranslateLanguage.allLanguages().forEach { language in
-            sourceLanguages.append(language.rawValue.lowercased())
-            targetLanguages.append(language.rawValue.lowercased())
-        }
+        sourceLanguages.append(contentsOf: TranslateService.shared.getAllLanguages())
+        targetLanguages.append(contentsOf: TranslateService.shared.getAllLanguages())
         sourceLanguages.sort()
         targetLanguages.sort()
         createPickerView()
@@ -46,12 +38,15 @@ class TranslationViewController: UIViewController, UIPickerViewDelegate, UITextF
     // MARK: - Actions
     
     @IBAction func clickOnTranslation(_ sender: Any) {
-        if sourceLanguageTexField.text == "Detect language" {
-            if let sourceTextField = inputTextField.text {
-                detectLanguage(sourceTextField, translate)
+        if let text = inputTextField.text {
+            if sourceLanguageTextField.text == "Detect language" {
+                TranslateService.shared.detectLanguage(text, { [weak self] (languageCode) in
+                    self?.sourceLanguageTextField.text = languageCode
+                    self?.translate(text: text)
+                })
+            } else {
+                self.translate(text: text)
             }
-        } else {
-            translate()
         }
     }
     
@@ -79,7 +74,7 @@ class TranslationViewController: UIViewController, UIPickerViewDelegate, UITextF
         sourceLanguagePicker.dataSource = self
         sourceLanguagePicker.delegate?.pickerView?(sourceLanguagePicker, didSelectRow: 0, inComponent: 0)
 
-        sourceLanguageTexField.inputView = sourceLanguagePicker
+        sourceLanguageTextField.inputView = sourceLanguagePicker
 
         targetLanguagePicker.delegate = self
         targetLanguagePicker.dataSource = self
@@ -96,20 +91,15 @@ class TranslationViewController: UIViewController, UIPickerViewDelegate, UITextF
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(TranslationViewController.hideKeyboardByTap))
         toolbar.setItems([doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
-        sourceLanguageTexField.inputAccessoryView = toolbar
+        sourceLanguageTextField.inputAccessoryView = toolbar
         targetLanguageTextField.inputAccessoryView = toolbar
     }
     
-    private func detectLanguage(_ text: String, _ succesHandler:  @escaping () -> Void) {
-        let languageId = LanguageIdentification.languageIdentification()
-        languageId.identifyLanguage(for: text) { (languageCode, error) in
-            if let error = error {
-                return
-            }
-            if let languageCode = languageCode, languageCode != "und" {
-                self.sourceLanguageTexField.text = languageCode
-                succesHandler()
-            }
+    func translate(text: String) {
+        if let sourceLanguage = sourceLanguageTextField.text, let targetLanguage = targetLanguageTextField.text {
+            TranslateService.shared.translate(sourceLanguage: sourceLanguage , targetLanguage: targetLanguage, text: text, succesHandler: { [weak self] (translatedText) in
+                self?.resultLabelText.text = translatedText
+            })
         }
     }
     
@@ -139,33 +129,9 @@ class TranslationViewController: UIViewController, UIPickerViewDelegate, UITextF
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == sourceLanguagePicker {
-            sourceLanguageTexField.text = sourceLanguages[row]
+            sourceLanguageTextField.text = sourceLanguages[row]
         } else {
             targetLanguageTextField.text = targetLanguages[row]
-        }
-    }
-    
-    func translate() {
-        if let sourceLanguage = sourceLanguageTexField.text, let targetLanguage = targetLanguageTextField.text {
-            let options = TranslatorOptions(sourceLanguage: TranslateLanguage.init(rawValue: sourceLanguage), targetLanguage: TranslateLanguage.init(rawValue: targetLanguage))
-            self.translator = Translator.translator(options: options)
-            
-            let conditions = ModelDownloadConditions(
-                allowsCellularAccess: false,
-                allowsBackgroundDownloading: true
-            )
-            translator.downloadModelIfNeeded(with: conditions) { error in
-                guard error == nil else { return }
-                return
-            }
-            if let inputText = inputTextField.text {
-                self.translator.translate(inputText) { (translatedText, error) in
-                    guard error == nil, let translatedText = translatedText else {
-                        return
-                    }
-                    self.resultLabelText.text = translatedText
-                }
-            }
         }
     }
     
