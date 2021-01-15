@@ -7,19 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74661CCA25B0A4E6002AAA4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74661CC925B0A4E6002AAA4B /* GoogleService-Info.plist */; };
 		748C521225B05D5800A95F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C521125B05D5800A95F85 /* AppDelegate.swift */; };
 		748C521425B05D5800A95F85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C521325B05D5800A95F85 /* SceneDelegate.swift */; };
 		748C521925B05D5800A95F85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748C521725B05D5800A95F85 /* Main.storyboard */; };
 		748C521B25B05D5900A95F85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 748C521A25B05D5900A95F85 /* Assets.xcassets */; };
 		748C521E25B05D5900A95F85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748C521C25B05D5900A95F85 /* LaunchScreen.storyboard */; };
 		748C523825B05EA100A95F85 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C523725B05EA100A95F85 /* TranslationViewController.swift */; };
-		748C523F25B0679C00A95F85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 748C523E25B0679C00A95F85 /* GoogleService-Info.plist */; };
 		A00CF1162498A3242B108B38 /* Pods_TranslateNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BF96DC5EC1691CF7CEB27B /* Pods_TranslateNow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0DAD1B7B6E21214515140BEC /* Pods-TranslateNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslateNow.debug.xcconfig"; path = "Target Support Files/Pods-TranslateNow/Pods-TranslateNow.debug.xcconfig"; sourceTree = "<group>"; };
 		2F9EDB1CF46ECA225E253913 /* Pods-TranslateNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslateNow.release.xcconfig"; path = "Target Support Files/Pods-TranslateNow/Pods-TranslateNow.release.xcconfig"; sourceTree = "<group>"; };
+		74661CC925B0A4E6002AAA4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		748C520E25B05D5800A95F85 /* TranslateNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslateNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		748C521125B05D5800A95F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		748C521325B05D5800A95F85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		748C521D25B05D5900A95F85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		748C521F25B05D5900A95F85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		748C523725B05EA100A95F85 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
-		748C523E25B0679C00A95F85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F9BF96DC5EC1691CF7CEB27B /* Pods_TranslateNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslateNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,7 +80,7 @@
 				748C521725B05D5800A95F85 /* Main.storyboard */,
 				748C521C25B05D5900A95F85 /* LaunchScreen.storyboard */,
 				748C521F25B05D5900A95F85 /* Info.plist */,
-				748C523E25B0679C00A95F85 /* GoogleService-Info.plist */,
+				74661CC925B0A4E6002AAA4B /* GoogleService-Info.plist */,
 			);
 			path = TranslateNow;
 			sourceTree = "<group>";
@@ -171,7 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				748C521E25B05D5900A95F85 /* LaunchScreen.storyboard in Resources */,
-				748C523F25B0679C00A95F85 /* GoogleService-Info.plist in Resources */,
+				74661CCA25B0A4E6002AAA4B /* GoogleService-Info.plist in Resources */,
 				748C521B25B05D5900A95F85 /* Assets.xcassets in Resources */,
 				748C521925B05D5800A95F85 /* Main.storyboard in Resources */,
 			);
