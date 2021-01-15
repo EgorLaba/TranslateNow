@@ -1,6 +1,9 @@
 PODS:
   - GoogleDataTransport (8.2.0):
     - nanopb (~> 2.30907.0)
+  - GoogleMLKit/LanguageID (1.0.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitLanguageID (~> 1.0.0)
   - GoogleMLKit/MLKitCore (1.0.0):
     - MLKitCommon (~> 1.0.0)
   - GoogleMLKit/Translate (1.0.0):
@@ -38,6 +41,8 @@ PODS:
     - GoogleUtilitiesComponents (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.12)
+  - MLKitLanguageID (1.0.0):
+    - MLKitNaturalLanguage (~> 1.0)
   - MLKitNaturalLanguage (1.0.0):
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
@@ -57,6 +62,7 @@ PODS:
   - Protobuf (3.14.0)
 
 DEPENDENCIES:
+  - GoogleMLKit/LanguageID
   - GoogleMLKit/Translate
 
 SPEC REPOS:
@@ -68,6 +74,7 @@ SPEC REPOS:
     - GoogleUtilitiesComponents
     - GTMSessionFetcher
     - MLKitCommon
+    - MLKitLanguageID
     - MLKitNaturalLanguage
     - MLKitTranslate
     - nanopb
@@ -82,12 +89,13 @@ SPEC CHECKSUMS:
   GoogleUtilitiesComponents: a69c0b3b369ba443e988141e75ef49d9010b1c80
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   MLKitCommon: 5f19646949440e023eda7ca8bef47b71b58de9b8
+  MLKitLanguageID: 04d8dd3ff4137a05638aede486e97d8ddc9c0370
   MLKitNaturalLanguage: 4058422310f4bd30d4365bb1cbe4f80d4ec3a9b5
   MLKitTranslate: 67e6a706ca9e83ac8b3ab3de679abb5656832a63
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 0cde852566359049847168e51bd1c690e0f70056
 
-PODFILE CHECKSUM: dafc3c4a21af58659c416416db4428f4cd6c0667
+PODFILE CHECKSUM: d2628a8b500800c81ba7f482c5cf65cdc0ac295d
 
 COCOAPODS: 1.10.1

@@ -6,5 +6,6 @@ target 'TranslateNow' do
   use_frameworks!
 
   pod 'GoogleMLKit/Translate'
+  pod 'GoogleMLKit/LanguageID'
 
 end
